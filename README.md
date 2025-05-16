@@ -1,11 +1,12 @@
 # Hệ thống Quản lý Cửa hàng Laptop
 
 ## Mục lục
-1. [Giới thiệu](#giới-thiệu)
-2. [Kiến trúc Hệ thống](#kiến-trúc-hệ-thống)
-3. [Cấu trúc Cơ sở dữ liệu](#cấu-trúc-cơ-sở-dữ-liệu)
-4. [Vai trò Người dùng](#vai-trò-người-dùng)
-5. [Luồng thực thi](#luồng-thực-thi)
+1. [Phân công công việc](#phân-công-công-việc)
+2. [Giới thiệu](#giới-thiệu)
+3. [Kiến trúc Hệ thống](#kiến-trúc-hệ-thống)
+4. [Cấu trúc Cơ sở dữ liệu](#cấu-trúc-cơ-sở-dữ-liệu)
+5. [Vai trò Người dùng](#vai-trò-người-dùng)
+6. [Luồng thực thi](#luồng-thực-thi)
     - [Đăng nhập và Xác thực](#đăng-nhập-và-xác-thực)
     - [Duyệt và Tìm kiếm Sản phẩm](#duyệt-và-tìm-kiếm-sản-phẩm)
     - [Quản lý Giỏ hàng](#quản-lý-giỏ-hàng)
@@ -14,8 +15,8 @@
     - [Quản lý Người dùng](#quản-lý-người-dùng)
     - [Quản lý Kho hàng](#quản-lý-kho-hàng)
     - [Tạo Báo cáo](#tạo-báo-cáo)
-6. [Chạy Ứng dụng](#chạy-ứng-dụng)
-7. [Yêu cầu Phần mềm](#yêu-cầu-phần-mềm)
+7. [Chạy Ứng dụng](#chạy-ứng-dụng)
+8. [Yêu cầu Phần mềm](#yêu-cầu-phần-mềm)
 
 ## Giới thiệu
 
