@@ -21,6 +21,48 @@
 
 Hệ thống Quản lý Cửa hàng Laptop là một ứng dụng console toàn diện được thiết kế để quản lý cửa hàng bán lẻ laptop. Hệ thống hỗ trợ nhiều loại người dùng (quản trị viên và khách hàng thông thường) và cung cấp các chức năng duyệt và mua laptop, quản lý kho hàng, xử lý đơn hàng, xử lý yêu cầu bảo hành, và tạo các báo cáo kinh doanh đa dạng.
 
+## Phân công công việc
+
+1. **Nguyễn Hoàng Dũng (B21DCVT144)** - Nhóm trưởng
+   - Trách nhiệm chính:
+      + Phát triển Giao diện người dùng trên Console (ConsoleUI) cho toàn bộ hệ thống.
+      + Quản lý chung, điều phối, đảm bảo tiến độ và tích hợp dự án.
+   - Cụm chức năng: Quản lý Người dùng & Truy cập Hệ thống
+      + UC1: Đăng nhập, đăng xuất tài khoản
+         + Mô tả: Người dùng sử dụng tài khoản đăng nhập, đăng xuất tài khoản.
+      + UC2: Đăng ký tài khoản
+         + Mô tả: Tạo mới tài khoản người dùng.
+      + UC9: Thay đổi thông tin cá nhân
+         + Mô tả: Thay đổi thông tin cá nhân, chỉnh sửa mật khẩu, xem thông tin cá nhân.
+   - Lý do: Nhóm use case này tập trung hoàn toàn vào quản lý tài khoản người dùng, từ tạo mới, đăng nhập đến cập nhật thông tin. Đây là nền tảng cốt lõi cho mọi tương tác người dùng. Dũng, với vai trò làm UI, sẽ dễ dàng tích hợp các form và logic này.
+2. **Hoàng Tài Anh (B21DCVT056)**
+   - Cụm chức năng: Quy trình Mua hàng & Đặt hàng của Khách hàng
+      + UC8: Quản lý giỏ hàng
+         + Mô tả: Thêm sản phẩm vào giỏ hàng, xem sản phẩm trong giỏ.
+      + UC12: Quản lý thanh toán
+         + Mô tả: Chọn phương thức thanh toán cho đơn hàng, ghi nhận kết quả thanh toán.
+      + UC3: Quản lý đơn hàng (Phần của Khách hàng & Admin)
+         + Mô tả: Khách hàng: Tạo đơn hàng (sau khi giỏ hàng và thanh toán hoàn tất), xem lịch sử đơn hàng, theo dõi trạng thái. Admin: Xem và cập nhật trạng thái đơn hàng.
+   - Lý do: Đây là luồng nghiệp vụ chính của khách hàng: chọn sản phẩm vào giỏ -> thanh toán -> tạo đơn hàng -> theo dõi đơn hàng. UC3 cũng bao gồm phần Admin xử lý đơn hàng, tạo sự liên kết. Tài Anh sẽ tập trung vào toàn bộ vòng đời của một giao dịch mua sắm.
+3. **Nguyễn Công Hoàn (B21DCVT200)**
+   - Cụm chức năng: Quản lý Sản phẩm & Nhập Kho (Admin)
+      + UC4: Quản lý thuộc tính sản phẩm
+         + Mô tả: Quản lý chi tiết thuộc tính sản phẩm (RAM, thương hiệu, màu sắc, CPU,...), thêm, sửa, xóa.
+      + UC5: Quản lý sản phẩm
+         + Mô tả: Thêm sản phẩm mới, sửa thông tin, xóa sản phẩm. Cung cấp logic cho tìm kiếm, lọc sản phẩm.
+      + UC6: Quản lý nhập hàng
+         + Mô tả: Thêm mới, chỉnh sửa, xóa, xem thông tin phiếu nhập hàng, cập nhật tồn kho.
+   - Lý do: Nhóm use case này tập trung vào việc quản lý danh mục sản phẩm từ các thuộc tính chi tiết đến thông tin sản phẩm tổng thể và quy trình nhập hàng để đảm bảo có hàng trong kho. Các chức năng này hoàn toàn thuộc về Admin và rất liên kết.
+4. **Phạm Ngọc Đức (B21DCVT136)**
+   - Cụm chức năng: Quản lý Xuất Kho, Dịch vụ Sau Bán & Báo cáo (Admin & User)
+      + UC7: Quản lý xuất hàng
+         + Mô tả: Thêm mới, chỉnh sửa, xóa, xem thông tin phiếu xuất. (Cập nhật tồn kho khi hàng được bán/xuất).
+      + UC10: Quản lý dịch vụ (Bảo hành, Đổi trả)
+         + Mô tả: User: Gửi yêu cầu bảo hành/đổi trả. Admin: Xử lý yêu cầu (xác nhận, lập phiếu).
+      + UC11: Quản lý doanh thu (Báo cáo)
+         + Mô tả: Giám sát và phân tích doanh thu, hiển thị danh sách sản phẩm và tổng doanh thu.
+   - Lý do: UC7 liên quan đến việc hàng hóa ra khỏi kho (sau khi đơn hàng được xử lý). UC10 là các dịch vụ hỗ trợ sau khi bán hàng. UC11 là tổng hợp và báo cáo kết quả kinh doanh. Đây là các hoạt động ở giai đoạn sau của vòng đời sản phẩm hoặc tổng kết hoạt động.
+
 ## Kiến trúc Hệ thống
 
 Ứng dụng tuân theo mô hình kiến trúc phân lớp với sự phân tách rõ ràng về chức năng:
